@@ -9,6 +9,7 @@ app.use(cors());
 consign()
     .include('./app/routes')
     .then('config/oracledbConnection.js')
+    .then('config/mongodbConnection.js')
     .then('app/models')
     .then('app/controllers')
     .into(app);

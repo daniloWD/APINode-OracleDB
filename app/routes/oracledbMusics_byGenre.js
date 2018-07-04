@@ -1,8 +1,8 @@
 module.exports = function(app) {
 
 
-    app.route('/api/genres/:genre').get((req, res) => {
-        app.app.controllers.getMusics.getMusicsByGenre(app, req, res, req.params['genre']);
+    app.route('/api/oracledb/genres/:genre').get((req, res) => {
+        app.app.controllers.getMusicsOracledb.getMusicsByGenre(app, req, res, req.params['genre']);
 
     });
 };

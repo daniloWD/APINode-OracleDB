@@ -1,7 +1,7 @@
 module.exports = function(app) {
-    app.route('/api/musics').get((req, res) => {
+    app.route('/api/oracledb/musics').get((req, res) => {
 
-        app.app.controllers.getMusics.getAllMusics(app, req, res);
+        app.app.controllers.getMusicsOracledb.getAllMusics(app, req, res);
 
     });
 };

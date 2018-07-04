@@ -1,7 +1,7 @@
 module.exports.getAllMusics = function(app, req, res) {
 
     var Connection = app.config.oracledbConnection();
-    var musicsModel = new app.app.models.MusicsDAO(Connection);
+    var musicsModel = new app.app.models.OracledbMusicsDAO(Connection);
 
     musicsModel.getAllMusics(function(error, result) {
 
@@ -13,7 +13,7 @@ module.exports.getAllMusics = function(app, req, res) {
 module.exports.getMusicsAllGenre = function(app, req, res) {
 
     var Connection = app.config.oracledbConnection();
-    var musicsModel = new app.app.models.MusicsDAO(Connection);
+    var musicsModel = new app.app.models.OracledbMusicsDAO(Connection);
 
     musicsModel.getMusicsAllGenre(function(error, result) {
 
@@ -25,7 +25,7 @@ module.exports.getMusicsAllGenre = function(app, req, res) {
 module.exports.getMusicsByGenre = function(app, req, res, requestedGenre) {
 
     var Connection = app.config.oracledbConnection();
-    var musicsModel = new app.app.models.MusicsDAO(Connection);
+    var musicsModel = new app.app.models.OracledbMusicsDAO(Connection);
 
 
     musicsModel.getMusicsByGenre(requestedGenre, function(error, result) {
@@ -38,7 +38,7 @@ module.exports.getMusicsByGenre = function(app, req, res, requestedGenre) {
 module.exports.getMusicsById = function(app, req, res, requestedId) {
 
     var Connection = app.config.oracledbConnection();
-    var musicsModel = new app.app.models.MusicsDAO(Connection);
+    var musicsModel = new app.app.models.OracledbMusicsDAO(Connection);
 
 
     musicsModel.getMusicsById(requestedId, function(error, result) {

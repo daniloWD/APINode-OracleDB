@@ -1,8 +1,8 @@
-function MusicsDAO(connection) {
+function OracledbMusicsDAO(connection) {
     this._connection = connection;
 };
 
-MusicsDAO.prototype.getAllMusics = function(callback) {
+OracledbMusicsDAO.prototype.getAllMusics = function(callback) {
     this._connection.then(function(conn) {
         conn.execute(
             `SELECT m.COD_MUSIC, m.STR_NAME, g.STR_GENRE, m.STR_LINK, m.STR_IMAGE,s.STR_SINGER
@@ -11,7 +11,7 @@ MusicsDAO.prototype.getAllMusics = function(callback) {
     });
 };
 
-MusicsDAO.prototype.getMusicsAllGenre = function(callback) {
+OracledbMusicsDAO.prototype.getMusicsAllGenre = function(callback) {
     this._connection.then(function(conn) {
         return conn.execute(
             `SELECT STR_GENRE FROM GENRE`, [], { outFormat: conn.OBJEC }, callback)
@@ -19,7 +19,7 @@ MusicsDAO.prototype.getMusicsAllGenre = function(callback) {
 };
 
 
-MusicsDAO.prototype.getMusicsByGenre = function(requestedGenre, callback) {
+OracledbMusicsDAO.prototype.getMusicsByGenre = function(requestedGenre, callback) {
     this._connection.then(function(conn) {
 
         conn.execute(
@@ -31,7 +31,7 @@ MusicsDAO.prototype.getMusicsByGenre = function(requestedGenre, callback) {
     });
 };
 
-MusicsDAO.prototype.getMusicsById = function(requestedId, callback) {
+OracledbMusicsDAO.prototype.getMusicsById = function(requestedId, callback) {
     this._connection.then(function(conn) {
         return conn.execute(
             `SELECT m.COD_MUSIC, m.STR_NAME, g.STR_GENRE, m.STR_LINK, m.STR_IMAGE,s.STR_SINGER
@@ -45,5 +45,5 @@ MusicsDAO.prototype.getMusicsById = function(requestedId, callback) {
 
 
 module.exports = function() {
-    return MusicsDAO;
+    return OracledbMusicsDAO;
 };

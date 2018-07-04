@@ -1,7 +1,7 @@
 module.exports = function(app) {
 
 
-    app.route('/api/oracleDB/:name/:uf').get((req, res) => {
+    app.route('/api/oracleDB/procondw/:name/:uf').get((req, res) => {
         let requestedName = findAndReplace(req.params['name']);
         let requestedUf = req.params['uf'];
         app.app.controllers.getProcon.getDadosProconByNameUF(app, req, res, requestedName, requestedUf);
