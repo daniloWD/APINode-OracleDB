@@ -1,10 +1,16 @@
-var express = require('express');
-var consign = require('consign');
-var cors = require('cors');
+var express = require('express'),
+    consign = require('consign'),
+    cors = require('cors'),
+    multiparty = require('connect-multiparty'),
+    bodyParser = require('body-parser');
 
-var app = express();
+    var app = express();
 app.use(express.static('./app/public'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({}));
+app.use(multiparty());
 app.use(cors());
+
 
 consign()
     .include('./app/routes')

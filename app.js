@@ -1,6 +1,7 @@
 var app = require('./config/server');
 
+var port = 8000;
 
-app.listen(8000, () => {
-    console.log('Servidor ouvindo na porta 8000!');
+app.listen(port, () => {
+    console.log('Servidor está ouvindo na porta ' + port);
 });
